@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 version = '1.0.0'
 
 setup(
-    name='django_admin_hstore',
+    name='django-admin-hstore',
     version=version,
     description="Widget and Field to properly render HStore data in Django-Admin",
     keywords="django admin hstore render",
