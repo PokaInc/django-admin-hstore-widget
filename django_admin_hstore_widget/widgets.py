@@ -11,8 +11,8 @@ class HStoreFormWidget(AdminTextareaWidget):
     @property
     def media(self):
         internal_js = [
-            "django_admin_hstore/underscore-min.js",
-            "django_admin_hstore/django-admin-hstore.js"
+            "django_admin_hstore_widget/underscore-min.js",
+            "django_admin_hstore_widget/django_admin_hstore_widget.js"
         ]
 
         js = [static("admin/js/%s" % path) for path in internal_js]
@@ -35,7 +35,7 @@ class HStoreFormWidget(AdminTextareaWidget):
         }
 
         # get template object
-        template = get_template('admin/django-admin-hstore-field-widget.html')
+        template = get_template('django_admin_hstore_widget.html')
         # render additional html
         additional_html = template.render(template_context)
 

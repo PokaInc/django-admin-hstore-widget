@@ -1,4 +1,4 @@
-# django-admin-hstore-field
+# django-admin-hstore-widget
 
 FormField that properly render HStoreField Data in django Admin based on [djangoauts package](https://github.com/djangonauts/django-hstore)
 
@@ -11,8 +11,12 @@ FormField that properly render HStoreField Data in django Admin based on [django
  
 Using pip:
 ```bash
-pip install django-admin-hstore
+pip install django-admin-hstore-widget
 ```
+
+## Installation
+
+Add django_admin_hstore_widget to your INSTALLED_APPS ( in base.py )
 
 ## Usage
 
