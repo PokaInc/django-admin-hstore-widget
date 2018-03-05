@@ -21,12 +21,24 @@ Add django_admin_hstore_widget to your INSTALLED_APPS ( in base.py )
 ## Usage
 
 ```python
-from django_admin_store.forms import HStoreFormField
+# yourmodel/admin.py
+from django.contrib import admin
+from django import forms
+
+from django_admin_hstore_widget.forms import HStoreFormField
+from models import Yourmodel
 
 class MyModelAdminForm(forms.ModelForm):
     my_hstore_field = HStoreFormField()
     
-
+    class Meta:
+       model = Yourmodel
+       exclude = ()
+    
+@admin.register(Yourmodel)
+class YourmodelAdmin(admin.ModelAdmin):
+    form = MyModelAdminForm
+    
 ```
 
 ## Result
