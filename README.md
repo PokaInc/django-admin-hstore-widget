@@ -11,18 +11,30 @@ FormField that properly render HStoreField Data in django Admin based on [django
  
 Using pip:
 ```bash
-pip install django-admin-hstore
+pip install django-admin-hstore-widget
 ```
 
 ## Usage
 
 ```python
-from django_admin_store.forms import HStoreFormField
+# yourmodel/admin.py
+from django.contrib import admin
+from django import forms
+
+from django_admin_hstore_widget.forms import HStoreFormField
+from models import Yourmodel
 
 class MyModelAdminForm(forms.ModelForm):
     my_hstore_field = HStoreFormField()
     
-
+    class Meta:
+       model = Yourmodel
+       exclude = ()
+    
+@admin.register(Yourmodel)
+class YourmodelAdmin(admin.ModelAdmin):
+    form = MyModelAdminForm
+    
 ```
 
 ## Result
