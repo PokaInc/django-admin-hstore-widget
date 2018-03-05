@@ -2,6 +2,7 @@
 
 FormField that properly render HStoreField Data in django Admin based on [djangoauts package](https://github.com/djangonauts/django-hstore)
 
+[![Build Status](https://travis-ci.org/PokaInc/django-admin-hstore-widget.svg?branch=master)](https://travis-ci.org/PokaInc/django-admin-hstore-widget)
 
 
 ## Requirements
