@@ -15,7 +15,7 @@ before_script:
   - psql template1 -c 'create extension hstore;'
 
 install:
-  - pip install coverage detox tox-travis flake8
+  - pip install coverage detox tox-travis flake8 psycopg2
 
 script:
   - coverage erase
