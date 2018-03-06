@@ -10,11 +10,10 @@ python:
 services:
   - postgresql
 
-before_script:
-  - psql -c 'CREATE EXTENSION hstore SCHEMA public;' -U postgres
-
 install:
   - pip install coverage detox tox-travis flake8 psycopg2
+  - psql -c 'CREATE DATABASE test_django_hstore' -U postgres
+  - psql -d test_django_hstore -c 'create extension hstore;'
 
 script:
   - coverage erase
