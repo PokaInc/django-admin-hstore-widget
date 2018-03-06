@@ -1,2 +1,6 @@
 coverage
 freezegun
+django
+flake8
+django-admin-hstore-widget
+psycopg2
