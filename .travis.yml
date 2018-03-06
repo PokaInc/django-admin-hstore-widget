@@ -12,8 +12,6 @@ services:
 
 install:
   - pip install coverage detox tox-travis flake8 psycopg2
-#  - psql -c 'CREATE DATABASE test_django_hstore' -U postgres
-#  - psql -d test_django_hstore -c 'create extension hstore;'
 
 before_script:
   - psql template1 -c 'create extension hstore;'

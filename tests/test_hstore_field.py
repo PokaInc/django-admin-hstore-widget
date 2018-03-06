@@ -1,4 +1,5 @@
 from django import forms
+from django.urls import reverse
 from django.test import TestCase
 from django.contrib import admin
 from django.contrib.auth.models import User
@@ -6,37 +7,62 @@ from django.contrib.auth.models import User
 
 from django_admin_hstore_widget.forms import HStoreFormField
 
-from .models import DataBag
+from .models import Cat
 
 
-class DataBagForm(forms.ModelForm):
+class CatForm(forms.ModelForm):
     data = HStoreFormField()
 
     class Meta:
-        model = DataBag
+        model = Cat
         fields = ('name', 'data')
 
 
-class DataBagAdmin(admin.ModelAdmin):
-    form = DataBagForm
+class CatAdmin(admin.ModelAdmin):
+    form = CatForm
 
 
-admin.site.register(DataBag, DataBagAdmin)
+admin.site.register(Cat, CatAdmin)
+
 
 class TestModel(TestCase):
 
-    def _create_bags(self):
-        alpha = DataBag.objects.create(name='alpha', data={'v': '1', 'v2': '3'})
-        beta = DataBag.objects.create(name='beta', data={'v': '2', 'v2': '4'})
-        return alpha, beta
+    ADMIN_USERNAME = 'murphy'
+    ADMIN_PASSWORD = 'cat'
 
-    def test_admin_widget(self):
-        alpha, beta = self._create_bags()
-
-        # create admin user
-        admin = User.objects.create(username='admin', password='tester', is_staff=True, is_superuser=True, is_active=True)
-        admin.set_password('tester')
+    def _create_admin_user(self):
+        admin = User.objects.create(
+            username=self.ADMIN_USERNAME,
+            is_staff=True,
+            is_superuser=True,
+            is_active=True
+        )
+        admin.set_password(self.ADMIN_PASSWORD)
         admin.save()
-        # login as admin
-        user_login = self.client.login(username='admin', password='tester')
-        self.assertTrue(user_login)
+
+    def _login(self):
+        self.client.login(username=self.ADMIN_USERNAME, password=self.ADMIN_PASSWORD)
+
+    def test__hstore_field_edit_view__render(self):
+        self._create_admin_user()
+        self._login()
+
+        cat = Cat.objects.create(name='Murphy', data={'race': '', 'gender': 'male'})
+        url = reverse('admin:tests_cat_change', args=(cat.pk,))
+        edit_view_response = self.client.get(url)
+
+        self.assertEqual(edit_view_response.status_code, 200)
+
+        # If the template is rendered with the django-admin-hstore-widget this class will be added to the textarea
+        self.assertContains(edit_view_response, 'class="hstore-original-textarea"')
+
+    def test__hstore_field_add_view__render(self):
+        self._create_admin_user()
+        self._login()
+
+        url = reverse('admin:tests_cat_add')
+        edit_view_response = self.client.get(url)
+
+        self.assertEqual(edit_view_response.status_code, 200)
+        # If the template is rendered with the django-admin-hstore-widget this class will be added to the textarea
+        self.assertContains(edit_view_response, 'class="hstore-original-textarea"')
