@@ -9,7 +9,7 @@ if VERSION[0] < 2:
         url(r'^admin/', include(admin.site.urls)),
     ]
 else:
-    from django.conf.urls import path
+    from django.urls import path
     urlpatterns = [
         path('admin/', admin.site.urls),
     ]
