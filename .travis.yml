@@ -11,8 +11,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database test_django_hstore;' -U postgres
-  - psql template1 -c 'create extension hstore;'
+  - psql -c 'CREATE EXTENSION hstore SCHEMA public;' -U postgres
 
 install:
   - pip install coverage detox tox-travis flake8 psycopg2
