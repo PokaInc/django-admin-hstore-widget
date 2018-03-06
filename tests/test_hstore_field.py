@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 from django_admin_hstore_widget.forms import HStoreFormField
 
-from models import DataBag
+from .models import DataBag
 
 
 class DataBagForm(forms.ModelForm):
