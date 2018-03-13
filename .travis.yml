@@ -39,5 +39,5 @@ matrix:
 
   exclude:
     - { python: "2.7", env: DJANGO=2.0 }
-    - { python: "", env: DJANGO=2.0 }
-    - { python: "", env: DJANGO=1.11 }
+    - { env: DJANGO=2.0 }
+    - { env: DJANGO=1.11 }
