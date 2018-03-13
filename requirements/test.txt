@@ -1,0 +1,5 @@
+-r test-ci.txt
+django
+flake8
+django-admin-hstore-widget
+psycopg2
