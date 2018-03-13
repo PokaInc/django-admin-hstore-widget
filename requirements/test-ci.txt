@@ -1,4 +1,3 @@
 coverage
 freezegun
-django-admin-hstore-widget
 psycopg2
