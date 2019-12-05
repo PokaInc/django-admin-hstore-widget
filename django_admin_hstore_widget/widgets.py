@@ -31,7 +31,6 @@ class HStoreFormWidget(AdminTextareaWidget):
         # prepare template context
         template_context = {
             'field_name': name,
-            'STATIC_URL': settings.STATIC_URL,
         }
 
         # get template object

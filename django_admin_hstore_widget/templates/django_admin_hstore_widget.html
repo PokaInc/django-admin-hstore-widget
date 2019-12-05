@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 <script type="text/html" id="hstore-row-template-{{ field_name }}" class="hstore-row-template-inline">
     <div class="form-row field-data">
         <div>
@@ -10,7 +10,7 @@
                    placeholder="{% trans 'value' %}">
             &nbsp;&nbsp;
             <a href="#" class="remove-row" title="{% trans 'remove row' %}">
-                <img src="{{ STATIC_URL }}admin/img/icon-deletelink.svg">
+                <img src="{% static "admin/img/icon-deletelink.svg" %}">
             </a>
         </div>
     </div>
@@ -50,12 +50,12 @@
 
         <div class="form-row">
             <a href="#" class="hs-add-row" title="{% trans 'Add another row' %}">
-                <img src="{{ STATIC_URL }}admin/img/icon-addlink.svg" alt="{% trans 'Add Another' %}">
+                <img src="{% static "admin/img/icon-addlink.svg" %}" alt="{% trans 'Add Another' %}">
                 {% trans "Add row" %}
             </a>
 
             <a href="#" class="hstore-toggle-txtarea" title="{% trans 'toggle textarea' %}" style="float:right">
-                <img src="{{ STATIC_URL }}admin/img/icon-changelink.svg" alt="{% trans 'toggle textarea' %}">
+                <img src="{% static "admin/img/icon-changelink.svg" %}" alt="{% trans 'toggle textarea' %}">
                 {% trans 'toggle textarea' %}
             </a>
         </div>
