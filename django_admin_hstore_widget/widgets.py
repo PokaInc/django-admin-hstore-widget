@@ -1,5 +1,8 @@
 from django.conf import settings
-from django.contrib.admin.templatetags.admin_static import static
+try:
+    from django.contrib.admin.templatetags.admin_static import static
+except ModuleNotFoundError:
+    from django.templatetags.static import static
 from django.contrib.admin.widgets import AdminTextareaWidget
 from django.contrib.postgres.forms import forms
 from django.template.loader import get_template
