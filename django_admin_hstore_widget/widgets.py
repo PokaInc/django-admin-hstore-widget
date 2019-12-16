@@ -1,6 +1,6 @@
 try:
     from django.contrib.admin.templatetags.admin_static import static
-except ModuleNotFoundError:
+except ImportError:
     from django.templatetags.static import static
 from django.contrib.admin.widgets import AdminTextareaWidget
 from django.contrib.postgres.forms import forms
