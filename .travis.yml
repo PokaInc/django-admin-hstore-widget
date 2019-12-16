@@ -25,6 +25,9 @@ after_success:
 env:
   - DJANGO=1.11
   - DJANGO=2.0
+  - DJANGO=2.1
+  - DJANGO=2.2
+  - DJANGO=3.0
 
 matrix:
   fast_finish: true
@@ -42,5 +45,8 @@ matrix:
     - { python: "3.6", env: DJANGO=1.11 }
 
   exclude:
+    - { env: DJANGO=3.0 }
+    - { env: DJANGO=2.2 }
+    - { env: DJANGO=2.1 }
     - { env: DJANGO=2.0 }
     - { env: DJANGO=1.11 }
