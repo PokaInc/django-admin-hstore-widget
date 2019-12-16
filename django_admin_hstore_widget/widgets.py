@@ -1,4 +1,3 @@
-from django.conf import settings
 try:
     from django.contrib.admin.templatetags.admin_static import static
 except ModuleNotFoundError:
