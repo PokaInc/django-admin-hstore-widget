@@ -21,12 +21,6 @@ after_success:
   - pip install codecov
   - codecov
 
-#env:
-#  - DJANGO=1.11
-#  - DJANGO=2.0
-#  - DJANGO=2.0
-#  - DJANGO=2.0
-
 matrix:
   fast_finish: true
   include:
@@ -58,8 +52,3 @@ matrix:
     - { python: "3.4", env: DJANGO=1.11 }
     # PYTHON 2.7
     - { python: "2.7", env: DJANGO=1.11 }
-
-#  exclude:
-#    - { python: "2.7", env: DJANGO=2.0 }
-#    - { env: DJANGO=2.0 }
-#    - { env: DJANGO=1.11 }
