@@ -22,6 +22,7 @@ class HStoreFormWidget(AdminTextareaWidget):
         return forms.Media(js=js)
 
     def render(self, name, value, attrs=None, renderer=None):
+	# Random comment to test travis build
         if attrs is None:
             attrs = {}
             # it's called "original" because it will be replaced by a copy
