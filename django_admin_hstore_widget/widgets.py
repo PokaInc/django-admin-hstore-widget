@@ -13,7 +13,7 @@ class HStoreFormWidget(AdminTextareaWidget):
     @property
     def media(self):
         internal_js = [
-            "django_admin_hstore_widget/underscore-min.js",
+            "django_admin_hstore_widget/underscore.js",
             "django_admin_hstore_widget/django_admin_hstore_widget.js"
         ]
 
