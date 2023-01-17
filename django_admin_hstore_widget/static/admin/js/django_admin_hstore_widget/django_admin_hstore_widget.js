@@ -168,7 +168,7 @@ var initDjangoHStoreWidget = function(hstore_field_name, inline_prefix) {
     });
 };
 
-django.jQuery(window).load(function() {
+django.jQuery(window).on('load', function() {
     // support inlines
     // bind only once
     if(django.hstoreWidgetBoundInlines === undefined){
