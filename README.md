@@ -1,4 +1,15 @@
-# django-admin-hstore-widget
+# django-admin-hstore-widget (Abandoned)
+
+## This project is officially abandoned and won't receive any new updates. This repository will be archived as of January 2025
+There's a hard fork of this project that is actively maintained and has more features. You can find more information [here](https://github.com/PokaInc/django-admin-hstore-widget/issues/27)
+
+### New fork
+[GitHub](https://github.com/PokaInc/django-admin-hstore-widget/issues/27)
+
+[pypi](https://pypi.org/project/django-hstore-widget/)
+
+
+---
 
 FormField that properly render HStoreField Data in django Admin based on [djangoauts package](https://github.com/djangonauts/django-hstore)
 
